@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Recipe.create([
+  {name: 'spaghetti', description: 'noodles with meat', meal: 'dinner', category: 'pasta', is_quick: false, cooking_style: 'stovetop', ethnicity: 'italian', meat: 'beef'},
+  {name: 'aebleskiver', description: 'a doughnut hole but sweeter', meal: 'breakfast', category: 'dessert', is_quick: false, cooking_style: 'stovetop', ethnicity: 'danish'}
+  ])
