@@ -18,6 +18,9 @@ Bundler.require(*Rails.groups)
 
 module Recipes
   class Application < Rails::Application
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
     config.generators do |g|
         g.test_framework :rspec, fixture: true
         g.fixture_replacement :factory_girl, dir: 'spec/factories'
