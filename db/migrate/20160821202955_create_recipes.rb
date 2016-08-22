@@ -4,6 +4,7 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.string :name
       t.text :description
       t.string :meal
+      t.integer :cooktime
       t.string :category
       t.boolean :is_quick
       t.boolean :is_healthy
