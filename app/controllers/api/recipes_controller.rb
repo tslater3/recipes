@@ -1,24 +1,28 @@
-class RecipesController < ApplicationController
-  def new
-  end
+module Api
+  class RecipesController < ApplicationController
+    before_action :authenticate_user!
 
-  def create
-  end
+    def new
+    end
 
-  def index
-    @recipes = Recipe.all
-    render json: @recipes
-  end
+    def create
+    end
 
-  def show
-  end
+    def index
+      @recipes = Recipe.all
+      render json: @recipes
+    end
 
-  def edit
-  end
+    def show
+    end
 
-  def update
-  end
+    def edit
+    end
 
-  def destroy
+    def update
+    end
+
+    def destroy
+    end
   end
 end
