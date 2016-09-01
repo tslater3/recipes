@@ -14,7 +14,7 @@ NULLCMD = :
 srcdir = .
 topdir = /Users/trevorslater/.rbenv/versions/2.3.0/include/ruby-2.3.0
 hdrdir = $(topdir)
-arch_hdrdir = /Users/trevorslater/.rbenv/versions/2.3.0/include/ruby-2.3.0/x86_64-darwin14
+arch_hdrdir = /Users/trevorslater/.rbenv/versions/2.3.0/include/ruby-2.3.0/x86_64-darwin15
 PATH_SEPARATOR = :
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
 prefix = $(DESTDIR)/Users/trevorslater/.rbenv/versions/2.3.0
@@ -31,8 +31,8 @@ rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
 vendorarchdir = $(vendorlibdir)/$(sitearch)
 vendorlibdir = $(vendordir)/$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(DESTDIR)./.gem.20160821-80660-1v1pye8
-sitelibdir = $(DESTDIR)./.gem.20160821-80660-1v1pye8
+sitearchdir = $(DESTDIR)./.gem.20160830-46103-185dhh6
+sitelibdir = $(DESTDIR)./.gem.20160830-46103-185dhh6
 sitedir = $(rubylibprefix)/site_ruby
 rubyarchdir = $(rubylibdir)/$(arch)
 rubylibdir = $(rubylibprefix)/$(ruby_version)
@@ -83,9 +83,9 @@ CCDLFLAGS = -fno-common
 CFLAGS   = $(CCDLFLAGS)  -O3 -Wno-error=shorten-64-to-32  -pipe $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/Applications/Postgres.app/Contents/Versions/9.4/include -I/Users/trevorslater/.rbenv/versions/2.3.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
+CPPFLAGS = -DRUBY_EXTCONF_H=\"$(RUBY_EXTCONF_H)\" -I/Applications/Postgres.app/Contents/Versions/9.5/include -I/Users/trevorslater/.rbenv/versions/2.3.0/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT $(DEFS) $(cppflags)
 CXXFLAGS = $(CCDLFLAGS) $(cxxflags) $(ARCH_FLAG)
-ldflags  = -L. -L/Users/trevorslater/.rbenv/versions/2.3.0/lib  -fstack-protector -L/usr/local/lib -Wl,-rpath,/Applications/Postgres.app/Contents/Versions/9.4/lib
+ldflags  = -L. -L/Users/trevorslater/.rbenv/versions/2.3.0/lib  -fstack-protector -L/usr/local/lib -Wl,-rpath,/Applications/Postgres.app/Contents/Versions/9.5/lib
 dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress 
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
@@ -101,7 +101,7 @@ RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
 RUBYW_BASE_NAME = rubyw
 RUBY_BASE_NAME = ruby
 
-arch = x86_64-darwin14
+arch = x86_64-darwin15
 sitearch = $(arch)
 ruby_version = 2.3.0
 ruby = $(bindir)/$(RUBY_BASE_NAME)
@@ -122,8 +122,8 @@ TOUCH = exit >
 
 preload = 
 
-libpath = . $(libdir) /Applications/Postgres.app/Contents/Versions/9.4/lib
-LIBPATH =  -L. -L$(libdir) -L/Applications/Postgres.app/Contents/Versions/9.4/lib
+libpath = . $(libdir) /Applications/Postgres.app/Contents/Versions/9.5/lib
+LIBPATH =  -L. -L$(libdir) -L/Applications/Postgres.app/Contents/Versions/9.5/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
