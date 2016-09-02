@@ -3,12 +3,15 @@
   <head>
     <title>Recipes</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all" %>
   </head>
 
   <body>
-    <%= yield %>
+    <base href="/recipes/">
+    <% if Rails.env.development? %>
+      <script src="http://localhost:35729/livereload.js"></script>
+    <% end %>
+    <%= javascript_include_tag asset_for("/dist/app.js") %>
+    Hello sah.
   </body>
 </html>
