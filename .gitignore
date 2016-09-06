@@ -8,6 +8,18 @@
 /.bundle
 vendor/bundle/
 
+_builds
+_projects
+_steps
+node_modules
+
+public/assets
+public/*.css
+public/*.js
+public/*.json
+public/*.map
+public/*.gz
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

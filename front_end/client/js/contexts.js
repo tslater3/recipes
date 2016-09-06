@@ -1,0 +1,14 @@
+export const configContext = require.context('./config', true, /\.js$/);
+export const constantsContext = require.context('./constants', true, /\.js$/);
+export const controllerMixinsContext = require.context('./controller_mixins', true, /\.js$/);
+export const componentsContext = require.context('./components', true, /\.js$/);
+export const directivesContext = require.context('./directives', true, /\.js$/);
+export const factoriesContext = require.context('./factories', true, /\.js$/);
+export const filtersContext = require.context('./filters', true, /\.js$/);
+export const modelMixinsContext = require.context('./model_mixins', true, /\.js$/);
+export const modelsContext = require.context('./models', true, /\.js$/);
+export const routesContext = require.context('./routes', true, /\.js$/);
+export const utilsContext = require.context('./utils', true, /\.js$/);
+export const providersContext = require.context('./providers', true, /\.js$/);
+export const ngTemplateContext = require.context('../templates', true, /\.html$/);
+export const ngTemplateIconsContext = require.context('../icons', true, /\.svg$/);
