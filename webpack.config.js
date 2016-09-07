@@ -23,41 +23,46 @@ function productionPlugin(instance) {
 module.exports = {
   entry: './front_end/client/js/boot.js',
   module: {
-      loaders: [
-        {test: /jquery\/dist\/jquery.js$/, loaders: ['expose?jQuery']},
-        {test: /moment\/moment.js$/, loaders: ['expose?moment']},
-        {test: /angular\/angular.js$/, loaders: ['imports?jQuery=jquery']},
-        {test: /localforage\/dist\/localforage.js$/, loaders: ['exports?localforage']},
-        {test: /angular-localForage.js$/, loaders: ['imports?angular&this=>{angular: angular}']},
-        {test: /svg-morpheus.js$/, loaders: ['exports?SVGMorpheus']},
-        {test: /angular-material-icons.js$/, loaders: ['imports?SVGMorpheus=svg-morpheus/compile/unminified/svg-morpheus']},
-        {test: /nv.d3.js$/, loaders: ['imports?d3=d3&window=>{}', 'exports?window.nv']},
-        {test: /angular-nvd3.js$/, loaders: ['imports?nvd3=d3']},
-        {test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel?stage=1']},
-        {test: /front_end\/client\/templates\/.*\.html$/, loaders: [
-          'ngtemplate?relativeTo=' + frontEndTemplatePath,
-          'html'
-        ]},
-        {test: /front_end\/client\/icons\/.*\.svg$/, loaders: [
-          'ngtemplate?relativeTo=' + frontEndIconPath,
-          'html'
-        ]},
-      ],
-      noParse: [
-        /localforage\/dist\/localforage.js$/,
-      ]
-    },
-    output: {
-      path: path.join(__dirname, "public"),
-      filename: "admin.js"
-    },
-    resolve: {
-      root: [
-        frontEndRootPath
-      ],
-      alias: {
-        localforage: 'localforage/dist/localforage',
-        jquery: 'jquery/dist/jquery'
-      }
-    },
+    loaders: [
+      {test: /jquery\/dist\/jquery.js$/, loaders: ['expose?jQuery']},
+      {test: /moment\/moment.js$/, loaders: ['expose?moment']},
+      {test: /angular\/angular.js$/, loaders: ['imports?jQuery=jquery']},
+      {test: /localforage\/dist\/localforage.js$/, loaders: ['exports?localforage']},
+      {test: /angular-localForage.js$/, loaders: ['imports?angular&this=>{angular: angular}']},
+      {test: /svg-morpheus.js$/, loaders: ['exports?SVGMorpheus']},
+      {test: /angular-material-icons.js$/, loaders: ['imports?SVGMorpheus=svg-morpheus/compile/unminified/svg-morpheus']},
+      {test: /nv.d3.js$/, loaders: ['imports?d3=d3&window=>{}', 'exports?window.nv']},
+      {test: /angular-nvd3.js$/, loaders: ['imports?nvd3=d3']},
+      {test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel?stage=1']},
+      {test: /front_end\/client\/templates\/.*\.html$/, loaders: [
+        'ngtemplate?relativeTo=' + frontEndTemplatePath,
+        'html'
+      ]},
+      {test: /front_end\/client\/icons\/.*\.svg$/, loaders: [
+        'ngtemplate?relativeTo=' + frontEndIconPath,
+        'html'
+      ]},
+    ],
+    noParse: [
+      /localforage\/dist\/localforage.js$/,
+    ]
+  },
+  output: {
+    path: path.join(__dirname, "public"),
+    filename: "admin.js"
+  },
+  resolve: {
+    root: [
+      frontEndRootPath
+    ],
+    alias: {
+      localforage: 'localforage/dist/localforage',
+      jquery: 'jquery/dist/jquery'
+    }
+  },
+  plugins: _.compact([
+    liveReloadPlugin,
+    productionPlugin(new webpack.optimize.UglifyJsPlugin({mangle: {keep_fnames: true}})),
+    productionPlugin(new CompressionPlugin({regExp: /\.js$|\.map$/})),
+  ])
 }

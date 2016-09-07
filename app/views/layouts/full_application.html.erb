@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipes</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+  </head>
+
+  <body>
+    <base href="/recipes">
+    <% if Rails.env.development? %>
+      <script src="http://localhost:35729/livereload.js"></script>
+    <% end %>
+    <%= javascript_include_tag asset_url("/admin.js") %>
+  </body>
+</html>

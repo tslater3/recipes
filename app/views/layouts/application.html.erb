@@ -7,11 +7,6 @@
   </head>
 
   <body>
-    <base href="/recipes/">
-    <% if Rails.env.development? %>
-      <script src="http://localhost:35729/livereload.js"></script>
-    <% end %>
-    <%= javascript_include_tag asset_for("/dist/app.js") %>
-    Hello sah.
+    <%= yield %>
   </body>
 </html>
