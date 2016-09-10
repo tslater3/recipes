@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Front end</title>
-  <%= stylesheet_link_tag    "front_end/application", media: "all" %>
-  <%= javascript_include_tag "front_end/application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Recipes</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all" %>
+  </head>
 
-<%= yield %>
-
-</body>
+  <body>
+    <base href="">
+    <div growl></div>
+    <div layout-fill ui-view></div>
+    <% if Rails.env.development? %>
+      <script src="http://localhost:35729/livereload.js"></script>
+    <% end %>
+    <%= javascript_include_tag asset_url("/admin.js") %>
+  </body>
 </html>
