@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Front end</title>
+  <%= stylesheet_link_tag    "front_end/application", media: "all" %>
+  <%= javascript_include_tag "front_end/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

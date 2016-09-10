@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'front_end', :path => "./front_end"
+
 group :test do
   gem "rspec-rails"
   gem "factory_girl_rails"
