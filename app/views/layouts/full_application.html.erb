@@ -7,7 +7,9 @@
   </head>
 
   <body>
-    <base href="/recipes">
+    <base href="">
+    <div growl></div>
+    <div layout-fill ui-view></div>
     <% if Rails.env.development? %>
       <script src="http://localhost:35729/livereload.js"></script>
     <% end %>
