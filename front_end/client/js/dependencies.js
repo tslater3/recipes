@@ -22,6 +22,7 @@ import "searchjs";
 import "angular-material-icons";
 import "svg-morpheus/compile/unminified/svg-morpheus";
 import "dotjem-angular-tree/src/directives/dxTree";
+import "angular-jsoneditor/angular-jsoneditor";
 import "angular-moment/angular-moment";
 import "mdPickers/dist/mdPickers";
 import "angular-material-data-table";

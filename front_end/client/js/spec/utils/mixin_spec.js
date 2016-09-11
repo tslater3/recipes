@@ -3,7 +3,7 @@ import {module, inject} from 'angular-mocks';
 describe('CollectionFilterConditions', function() {
   let mixin, target;
 
-  beforeEach(module('adminfront', function($provide) {
+  beforeEach(module('frontend', function($provide) {
     function MixinOne() {
       return {
         one: true

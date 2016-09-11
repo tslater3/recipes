@@ -1,6 +1,7 @@
 export const configContext = require.context('./config', true, /\.js$/);
 export const constantsContext = require.context('./constants', true, /\.js$/);
 export const controllerMixinsContext = require.context('./controller_mixins', true, /\.js$/);
+export const controllersContext = require.context('./controllers', true, /\.js$/);
 export const componentsContext = require.context('./components', true, /\.js$/);
 export const directivesContext = require.context('./directives', true, /\.js$/);
 export const factoriesContext = require.context('./factories', true, /\.js$/);

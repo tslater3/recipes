@@ -33,6 +33,8 @@ module.exports = {
       {test: /angular-material-icons.js$/, loaders: ['imports?SVGMorpheus=svg-morpheus/compile/unminified/svg-morpheus']},
       {test: /nv.d3.js$/, loaders: ['imports?d3=d3&window=>{}', 'exports?window.nv']},
       {test: /angular-nvd3.js$/, loaders: ['imports?nvd3=d3']},
+      {test: /jsoneditor.js$/, loaders: ['expose?JSONEditor']},
+      {test: /angular-jsoneditor.js$/, loaders: ['imports?JSONEditor=angular-jsoneditor/node_modules/jsoneditor/jsoneditor']},
       {test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel?stage=1']},
       {test: /front_end\/client\/templates\/.*\.html$/, loaders: [
         'ngtemplate?relativeTo=' + frontEndTemplatePath,

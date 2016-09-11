@@ -2,7 +2,7 @@ import "./dependencies";
 import "./lib/underscore_mixins";
 import "./lib/underscore_string";
 import _ from 'lodash';
-// import {camel, none, pascal, snake} from './lib/path_helpers';
+import {camel, none, pascal, snake} from './lib/path_helpers';
 
 import {
   configContext,
@@ -18,10 +18,11 @@ import {
   routesContext,
   utilsContext,
   providersContext,
+  ngTemplateContext,
   ngTemplateIconsContext
 } from './contexts';
 
-const app = angular.module('adminfront', [
+const app = angular.module('frontend', [
   "angular-growl",
   "angular-clipboard",
   "angular-svg-round-progress",
@@ -34,6 +35,7 @@ const app = angular.module('adminfront', [
   "ngAria",
   "md.data.table",
   "ngFileUpload",
+  "ngJsonEditor",
   "ngMaterial",
   "ngMdIcons",
   "ngSanitize",
@@ -86,7 +88,7 @@ register(providersContext,        'provider'  , camel);
 ngTemplateContext.keys().forEach(ngTemplateContext);
 ngTemplateIconsContext.keys().forEach(ngTemplateIconsContext);
 
-app.run(function ($state, $rootScope, $http, NgMdIconExtensions, ngMdIconService, pendingRequests, $mdDialog) {
+app.run(function ($state, $rootScope, $http, NgMdIconExtensions, ngMdIconService, pendingRequests, $mdDialog, stateChanges) {
   _.each(NgMdIconExtensions, function(svg, name){
     ngMdIconService.addShape(name, svg);
   });
@@ -101,25 +103,30 @@ app.run(function ($state, $rootScope, $http, NgMdIconExtensions, ngMdIconService
       event.preventDefault();
       $state.go(toState.redirectTo, toParams, {location: 'replace'});
     }
+
+    if($http.anyCancelablePendingRequests()) {
+       let warning_text = `It looks like there are requests happening in the background. If you change pages, they will be cancelled. Do you want to cancel pending requests and change pages?`,
+           confirm = $mdDialog.confirm()
+                              .title('Cancel pending requests?')
+                              .content(warning_text)
+                              .ariaLabel('Confirm page change')
+                              .targetEvent(event)
+                              .ok('Yes, cancel requests')
+                              .cancel('No, stay on page');
+
+       $mdDialog.show(confirm).then(function() {
+         pendingRequests.cancelAll();
+       }, function() {
+         event.preventDefault();
+       });
+    }
   });
 
   $rootScope.icons = _.map(ngTemplateIconsContext.keys(), function(k){
     return k.substr(1);
   });
 
-  $rootScope.state_changes = {};
-
-  $rootScope.$on('$stateChangeSuccess', function(ev, to, to_params, from, from_params) {
-    $rootScope.state_changes.previous = {
-      name: from,
-      params: from_params
-    };
-
-    $rootScope.state_changes.current = {
-      name: to,
-      params: to_params
-    };
-  });
+  $rootScope.sidebar_expanded = true;
 });
 
 export default app;
