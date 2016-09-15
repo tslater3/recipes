@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 export default /* @ngInject */ function($stateProvider, $urlRouterProvider) {
-  console.log('hit');
+  // console.log('hit');
   // $stateProvider.state("groups", {
   //   abstract: false,
   //   url: "/groups",

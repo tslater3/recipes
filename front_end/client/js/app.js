@@ -4,6 +4,8 @@ import "./lib/underscore_string";
 import _ from 'lodash';
 import {camel, none, pascal, snake} from './lib/path_helpers';
 
+var path = require('path');
+
 import {
   configContext,
   constantsContext,
@@ -93,40 +95,10 @@ app.run(function ($state, $rootScope, $http, NgMdIconExtensions, ngMdIconService
     ngMdIconService.addShape(name, svg);
   });
 
-  $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-    console.log("State change error", error);
-    console.log(toState, toParams);
-  });
-
-  $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams, error) {
-    if(toState.redirectTo) {
-      event.preventDefault();
-      $state.go(toState.redirectTo, toParams, {location: 'replace'});
-    }
-
-    if($http.anyCancelablePendingRequests()) {
-       let warning_text = `It looks like there are requests happening in the background. If you change pages, they will be cancelled. Do you want to cancel pending requests and change pages?`,
-           confirm = $mdDialog.confirm()
-                              .title('Cancel pending requests?')
-                              .content(warning_text)
-                              .ariaLabel('Confirm page change')
-                              .targetEvent(event)
-                              .ok('Yes, cancel requests')
-                              .cancel('No, stay on page');
-
-       $mdDialog.show(confirm).then(function() {
-         pendingRequests.cancelAll();
-       }, function() {
-         event.preventDefault();
-       });
-    }
-  });
-
   $rootScope.icons = _.map(ngTemplateIconsContext.keys(), function(k){
     return k.substr(1);
   });
 
-  $rootScope.sidebar_expanded = true;
 });
 
 export default app;
