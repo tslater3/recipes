@@ -1,0 +1,162 @@
+.bigger-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.cards {
+  padding: 0 2em 2em;
+}
+
+.content-header {
+  height: 82px;
+  &.spacer {
+    width: 20px;
+    height: 82px;
+  }
+
+  h1 {
+    display: inline-block;
+  }
+
+  .back-button {
+    margin: 0 5px 0;
+
+    md-icon {
+      height: 64px;
+      width: 64px;
+    }
+  }
+}
+
+.content-header-left {
+  padding-left: 20px;
+
+  .page-title {
+    margin: 0;
+  }
+
+  span:first-child {
+    margin-right: 5px;
+  }
+}
+
+.content-header-right {
+  padding-right: 20px;
+
+  .page-title {
+    margin: 0;
+  }
+}
+
+.content-header-shadow {
+  box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 2px 5px 0px rgba(0, 0, 0, 0.35);
+}
+
+a.disabled {
+  color: #999999 !important;
+}
+
+.locale-flag-wrap {
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid #aaa;
+  padding: 2px 20px;
+  small {
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+}
+
+button.no-style {
+  border: 0;
+  background: transparent;
+  padding: 0px 5px !important;
+}
+
+.cursor-not-allowed {
+  cursor: not-allowed;
+  .no-pointer-events, .pointer-events-none {
+    pointer-events: none;
+  }
+}
+
+.no-pointer-events, .pointer-events-none {
+  pointer-events: none;
+}
+
+.disable-with-color-scheme {
+  cursor: not-allowed;
+  md-icon {
+    color: rgba(0, 0, 0, 0.26);
+    fill: rgba(0, 0, 0, 0.26);
+    pointer-events: none;
+  }
+}
+
+div, li, a {
+  outline: 0;
+  &:focus {
+    outline: 0;
+  }
+}
+
+.fixed-font-width {
+  font-family: monospace;
+  font-size: 12px;
+}
+
+  .subheader-with-md-button {
+    ._md-subheader-inner{
+      padding: 0px 0px 0px 16px;
+    }
+    &.surveys-custom-content {
+      padding: 4px 0 4px 0;
+    }
+  }
+
+.no-padding {
+  padding: 0px;
+}
+
+.no-margin {
+  margin: 0px !important;
+}
+
+.no-margin-or-padding {
+  margin: 0px;
+  padding: 0px;
+}
+
+.no-bottom-padding {
+  padding-bottom: 0px;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0px;
+}
+
+.no-top-padding {
+  padding-top: 0px !important;
+}
+
+.no-top-margin {
+  margin-top: 0px !important;
+}
+
+@media only screen and (min-width: 656px) {
+  .repeated-items {
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 16px;
+  }
+}
+
+.overflow-container {
+  overflow: auto;
+}
+
+.text-center {
+  text-align: center;
+}

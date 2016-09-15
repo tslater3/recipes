@@ -1,0 +1,44 @@
+@import "components/colors";
+
+.cursor-pointer {
+  cursor:pointer;
+}
+
+.hover {
+  &:hover {
+    &.underline {
+      text-decoration:underline;
+    }
+  }
+}
+
+.apply-primary-color-on-hover {
+  &:hover {
+    &:not([disabled]) {
+      color:$primary-color !important;
+    }
+  }
+}
+.apply-primary-background-color-on-hover {
+  &:hover {
+    &:not([disabled]) {
+      background:$primary-color !important;
+    }
+  }
+}
+
+.apply-accent-color-on-hover {
+  &:hover {
+    &:not([disabled]) {
+      color:$accent-color !important;
+    }
+  }
+}
+
+.apply-accent-background-color-on-hover {
+  &:hover {
+    &:not([disabled]) {
+      background:$accent-color !important;
+    }
+  }
+}
